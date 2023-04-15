@@ -1,0 +1,23 @@
+{
+  "name": "social-api",
+  "version": "1.0.0",
+  "description": "Mongoose back-end",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/amymckellar/API-Social_Network.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/amymckellar/API-Social_Network/issues"
+  },
+  "homepage": "https://github.com/amymckellar/API-Social_Network#readme",
+  "dependencies": {
+    "mongoose": "^7.0.3"
+  }
+}
