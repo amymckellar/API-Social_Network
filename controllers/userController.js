@@ -38,9 +38,10 @@ const userController = {
     // PUT to update a user by id
     updateUser(req, res) {
         user.create(req.body)
-        .then(dbUserData) => res.json(dbUserData))
+        .then(dbUserData) => res.json((dbUserData))
         .catch(err => res.status(400).json(err));
     },
+
 
     // DELETE to remove user by id
     deleteUser(req, res) {
@@ -83,6 +84,7 @@ const userController = {
         .catch(err => res.status(400).json(err));
     }
 };
+
 
 module.exports = userController;
        
