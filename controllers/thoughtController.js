@@ -55,6 +55,19 @@ const thoughtController = {
         .catch(err => res.json(err));
     },
 
+    // DELETE to remove a thought by id
+    deleteThought(req, res) {
+        thought.findOneAndDelete({ _id: req.params.id })
+        .then(dbThoughtData => {
+            if (!dbThoughtData) {
+                res.status(404).json({ message: 'No thought found with this id!' });
+                return;
+            }
+            res.json(dbThoughtData);
+        })
+        .catch(err => res.status(400).json(err));
+    },
+
     
 
 
