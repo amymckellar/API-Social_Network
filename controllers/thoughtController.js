@@ -7,11 +7,11 @@ const thoughtController = {
         .then(dbThoughtData => res.json(dbThoughtData))
         .catch((err => {
             console.log(err);
-            res.sendStatus(400);
-        },
-        );
-
+            res.status(400).json(err);
+        }));
     },
+
+
 
     // GET a single thought by id
     getThoughtById(req, res) {
@@ -23,3 +23,18 @@ const thoughtController = {
         });
     },
 
+
+    // POST a new thought
+    createThought(req, res) {
+        thought.create(req.body)
+        .then(async (dbThoughtData) => {
+            const user = await user.findOneAndUpdate(
+                {username: req.body.username},
+                { $push: { thoughts: dbThoughtData._id } },
+            );
+            res.json(dbThoughtData);
+        })
+        .catch(err => res.json(err));
+    },
+
+    
